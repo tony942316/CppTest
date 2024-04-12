@@ -10,12 +10,15 @@ message("Compiler is: ${CMAKE_CXX_COMPILER_ID}")
 add_subdirectory(CMakeInterfaces)
 
 add_subdirectory(HelloWorld)
+add_subdirectory(Modules)
 
 add_executable(Driver)
 target_sources(Driver PRIVATE Driver.cpp)
+target_compile_features(Driver PRIVATE cxx_std_20)
 target_link_libraries(Driver PRIVATE
     DebugSymbols Optimizations Sanitizers WarningFlags)
 
 set_target_properties(Driver PROPERTIES
+    CXX_STANDARD_REQUIRED On
     CXX_EXTENSIONS Off
     EXPORT_COMPILE_COMMANDS On)
