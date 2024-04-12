@@ -11,4 +11,4 @@ Diagnostics:
       bugprone-* ]
     Remove: [ performance-avoid-endl,
       modernize-use-trailing-return-type ]
-    UnusedIncludes: None
+  UnusedIncludes: None
