@@ -1,0 +1,3 @@
+[submodule "EQX-CMakeInterfaces"]
+	path = EQX-CMakeInterfaces
+	url = git@github.com:tony942316/EQX-CMakeInterfaces.git

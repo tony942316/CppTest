@@ -8,7 +8,7 @@ project(CppTest
 message("Compiler is: ${CMAKE_CXX_COMPILER_ID}")
 message("Build Type is: ${CMAKE_BUILD_TYPE}")
 
-include(CMakeInterfaces/CMakeInterfaces.cmake)
+include(EQX-CMakeInterfaces/Interfaces.cmake)
 
 add_subdirectory(HelloWorld)
 add_subdirectory(Modules)
