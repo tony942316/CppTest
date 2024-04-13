@@ -16,7 +16,7 @@ add_executable(Driver)
 target_sources(Driver PRIVATE Driver.cpp)
 target_compile_features(Driver PRIVATE cxx_std_20)
 target_link_libraries(Driver PRIVATE
-    DebugSymbols Optimizations Sanitizers WarningFlags)
+    EQX-DebugSymbols EQX-Optimizations EQX-Sanitizers EQX-Warnings)
 
 set_target_properties(Driver PROPERTIES
     CXX_STANDARD_REQUIRED On

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.28)
 
 add_executable(HelloWorld)
 target_sources(HelloWorld PRIVATE Main.cpp)
-target_link_libraries(HelloWorld PRIVATE Sanitizers WarningFlags)
+target_link_libraries(HelloWorld PRIVATE EQX-Sanitizers EQX-Warnings)
 
 set_target_properties(HelloWorld PROPERTIES
     CXX_EXTENSIONS Off
