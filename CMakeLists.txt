@@ -7,7 +7,7 @@ project(CppTest
 
 message("Compiler is: ${CMAKE_CXX_COMPILER_ID}")
 
-add_subdirectory(CMakeInterfaces)
+include(CMakeInterfaces/CMakeInterfaces.cmake)
 
 add_subdirectory(HelloWorld)
 add_subdirectory(Modules)
