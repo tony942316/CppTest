@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <string_view>
 #include <vector>
+#include <array>
 #include <span>
 
 using namespace std::literals;
@@ -50,7 +51,7 @@ void Tester::runTest(const std::string_view test) const noexcept
 
     std::cout << '\n' << c_Delim << std::endl;
     std::cout << "Running Test: "sv << test << std::endl;
-    std::system(testBinary.c_str());
+    std::system(testBinary.string().c_str());
     std::cout << "Test Complete!"sv << std::endl;
     std::cout << c_Delim << '\n' << std::endl;
 }
