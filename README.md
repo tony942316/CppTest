@@ -11,9 +11,9 @@
 Collection of small programs that are built and run to ensure the build system
 is operating correctly, the build system is assumed to support c++20.
 
-HelloWorld -> Build and run a simple hello world program
-Format     -> Test if std::format is available
-Modules    -> Test to see if c++20 modules are operating correctly
+- HelloWorld -> Build and run a simple hello world program
+- Format     -> Test if std::format is available
+- Modules    -> Test to see if c++20 modules are operating correctly
 
 ## Building <a name="building"></a>
 
