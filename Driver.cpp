@@ -52,9 +52,9 @@ void Tester::runTest(const std::string_view test) const noexcept
     testBinary /= test;
 #ifdef _WIN32
 #ifdef NDEBUG
-    testBinary /= "Release"sv
+    testBinary /= "Release"sv;
 #else
-    testBinary /= "Debug"sv
+    testBinary /= "Debug"sv;
 #endif// _NDEBUG
 #endif // _WIN32
     testBinary /= test;
