@@ -46,7 +46,17 @@ void Tester::runTest(const std::string_view test) const noexcept
 {
     auto testBinary = m_BinaryRoot;
     testBinary.remove_filename();
+#ifdef _WIN32
+    testBinary /= ".."sv
+#endif // _WIN32
     testBinary /= test;
+#ifdef _WIN32
+#ifdef NDEBUG
+    testBinary /= "Release"sv
+#else
+    testBinary /= "Debug"sv
+#endif// _NDEBUG
+#endif // _WIN32
     testBinary /= test;
 
     std::cout << '\n' << c_Delim << std::endl;
