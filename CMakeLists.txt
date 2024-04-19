@@ -12,7 +12,9 @@ include(EQX-CMakeInterfaces/Interfaces.cmake)
 
 add_subdirectory(Format)
 add_subdirectory(HelloWorld)
-add_subdirectory(Modules)
+if (CMAKE_CXX_SCAN_FOR_MODULES)
+    add_subdirectory(Modules)
+endif()
 
 add_executable(Driver)
 target_sources(Driver PRIVATE Driver.cpp)

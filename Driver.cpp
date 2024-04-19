@@ -61,7 +61,11 @@ void Tester::runTest(const std::string_view test) const noexcept
 
     std::cout << '\n' << c_Delim << std::endl;
     std::cout << "Running Test: "sv << test << std::endl;
-    std::system(testBinary.string().c_str());
+    auto result = std::system(testBinary.string().c_str());
+    if (result != 0)
+    {
+        std::cout << test << " UNAVAILABLE!" << std::endl;
+    }
     std::cout << "Test Complete!"sv << std::endl;
     std::cout << c_Delim << '\n' << std::endl;
 }
