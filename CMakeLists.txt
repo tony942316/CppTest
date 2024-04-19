@@ -17,8 +17,16 @@ add_subdirectory(Modules)
 add_executable(Driver)
 target_sources(Driver PRIVATE Driver.cpp)
 target_compile_features(Driver PRIVATE cxx_std_20)
-target_link_libraries(Driver PRIVATE
-    EQX-DebugSymbols EQX-Optimizations EQX-Sanitizers EQX-Warnings)
+
+target_link_libraries(Driver PRIVATE EQX-Warnings)
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_link_libraries(Driver PRIVATE
+        "$<$<CONFIG:Debug>:EQX-DebugSymbols;EQX-Sanitizers>"
+        "$<$<CONFIG:Release>:EQX-Optimizations>")
+else ()
+    target_link_libraries(Driver PRIVATE
+        EQX-DebugSymbols EQX-Sanitizers)
+endif()
 
 set_target_properties(Driver PROPERTIES
     CXX_STANDARD_REQUIRED On

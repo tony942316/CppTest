@@ -77,5 +77,8 @@ int main(int argc, char* argv[])
     auto tester = Tester{ *argv,  tests };
     tester.run();
 
+    std::cout << "Exit: ";
+    std::cin.get();
+
     return EXIT_SUCCESS;
 }
