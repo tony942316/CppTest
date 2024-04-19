@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 3.28)
 
 project(CppTest
-    VERSION 0.1.0
+    VERSION 1.0.0
     DESCRIPTION "Programs To Test Functionality"
     LANGUAGES CXX)
 
 message("Compiler is: ${CMAKE_CXX_COMPILER_ID}")
-message("Build Type is: ${CMAKE_BUILD_TYPE}")
 
 include(EQX-CMakeInterfaces/Interfaces.cmake)
 
