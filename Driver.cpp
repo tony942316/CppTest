@@ -47,7 +47,7 @@ void Tester::runTest(const std::string_view test) const noexcept
     auto testBinary = m_BinaryRoot;
     testBinary.remove_filename();
 #ifdef _WIN32
-    testBinary /= ".."sv
+    testBinary /= ".."sv;
 #endif // _WIN32
     testBinary /= test;
 #ifdef _WIN32
