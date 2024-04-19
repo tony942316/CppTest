@@ -69,7 +69,8 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    constexpr auto tests = std::array<const std::string_view, 2>{
+    constexpr auto tests = std::array<const std::string_view, 3>{
+        "Format"sv,
         "HelloWorld"sv,
         "Modules"sv };
 

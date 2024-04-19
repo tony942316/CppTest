@@ -2,26 +2,27 @@ cmake_minimum_required(VERSION 3.28)
 
 add_library(GMF INTERFACE) # Global Module Flags
 
-add_library(Regular STATIC)
-target_sources(Regular
+add_library(IOStream STATIC)
+target_sources(IOStream
     PUBLIC FILE_SET CXX_MODULES FILES
-        Regular.cpp)
-target_compile_features(Regular PUBLIC cxx_std_20)
-target_link_libraries(Regular PUBLIC GMF)
+        IOStream.cpp)
+target_compile_features(IOStream PUBLIC cxx_std_20)
+target_link_libraries(IOStream PUBLIC GMF)
 
-set_target_properties(Regular PROPERTIES
+set_target_properties(IOStream PROPERTIES
     CXX_STANDARD_REQUIRED On
     CXX_EXTENSIONS Off
     EXPORT_COMPILE_COMMANDS On)
 
-add_library(PMF STATIC)
-target_sources(PMF
+add_library(Regular STATIC)
+target_sources(Regular
     PUBLIC FILE_SET CXX_MODULES FILES
-        PMF.cpp)
-target_compile_features(PMF PUBLIC cxx_std_20)
-target_link_libraries(PMF PUBLIC GMF)
+        Regular.cpp)
+target_sources(Regular PRIVATE Implementation.cpp)
+target_compile_features(Regular PUBLIC cxx_std_20)
+target_link_libraries(Regular PUBLIC GMF IOStream)
 
-set_target_properties(PMF PROPERTIES
+set_target_properties(Regular PROPERTIES
     CXX_STANDARD_REQUIRED On
     CXX_EXTENSIONS Off
     EXPORT_COMPILE_COMMANDS On)
@@ -33,7 +34,7 @@ target_sources(Partition
         Partition-Implementation.cpp
         Partition-Interface.cpp)
 target_compile_features(Partition PUBLIC cxx_std_20)
-target_link_libraries(Partition PUBLIC GMF)
+target_link_libraries(Partition PUBLIC GMF IOStream)
 
 set_target_properties(Partition PROPERTIES
     CXX_STANDARD_REQUIRED On
@@ -43,7 +44,7 @@ set_target_properties(Partition PROPERTIES
 add_executable(Modules)
 target_sources(Modules PRIVATE Main.cpp)
 target_compile_features(Modules PRIVATE cxx_std_20)
-target_link_libraries(Modules PRIVATE Regular PMF Partition)
+target_link_libraries(Modules PRIVATE Regular Partition)
 
 target_link_libraries(GMF INTERFACE EQX-Warnings)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")

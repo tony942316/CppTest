@@ -1,21 +1,25 @@
-module;
-
-#include <iostream>
-
 export module Partition:Interface;
+
+import IOStream;
 
 namespace Partition
 {
     export class Interface
     {
     public:
-        static void print() noexcept;
+        static void print() noexcept
+        {
+            std::cout << "Hello Partition Module Interface Units!" << std::endl;
+        }
 
     private:
     };
 
-    void Interface::print() noexcept
+    export class Implementation
     {
-        std::cout << "Hello Partition Module Interface Units!" << std::endl;
-    }
+    public:
+        static void print() noexcept;
+
+    private:
+    };
 }

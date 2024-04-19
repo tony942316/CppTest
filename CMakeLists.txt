@@ -10,6 +10,7 @@ message("Build Type is: ${CMAKE_BUILD_TYPE}")
 
 include(EQX-CMakeInterfaces/Interfaces.cmake)
 
+add_subdirectory(Format)
 add_subdirectory(HelloWorld)
 add_subdirectory(Modules)
 

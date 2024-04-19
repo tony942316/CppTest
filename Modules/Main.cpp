@@ -1,12 +1,10 @@
 import Regular;
-import PMF;
 import Partition;
-
-#include <iostream>
 
 int main()
 {
     Regular::print();
+    Implementation::print();
     PMF::print();
     Partition::Interface::print();
     Partition::Implementation::print();

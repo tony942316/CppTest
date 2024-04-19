@@ -1,8 +1,6 @@
-module;
-
-#include <iostream>
-
 export module Regular;
+
+import IOStream;
 
 export class Regular
 {
@@ -14,5 +12,28 @@ private:
 
 void Regular::print() noexcept
 {
-    std::cout << "Hello Regular Modules!" << std::endl;
+    std::cout << "Hello Primary Module Interface Units!" << std::endl;
+}
+
+export class Implementation
+{
+public:
+    static void print() noexcept;
+
+private:
+};
+
+export class PMF
+{
+public:
+    static void print() noexcept;
+
+private:
+};
+
+module : private;
+
+void PMF::print() noexcept
+{
+    std::cout << "Hello Private Module Fragments!" << std::endl;
 }

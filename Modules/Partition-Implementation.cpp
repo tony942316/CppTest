@@ -1,10 +1,13 @@
-module;
-
-#include <iostream>
-
 module Partition:Implementation;
+import :Interface;
 
-void printImpl() noexcept
+import IOStream;
+
+namespace Partition
 {
-    std::cout << "Hello Partition Module Implementation Units!" << std::endl;
+    void Implementation::print() noexcept
+    {
+        std::cout << "Hello Partition Module Implementation Units!"
+            << std::endl;
+    }
 }
