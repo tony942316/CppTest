@@ -59,12 +59,15 @@ void Tester::runTest(const std::string_view test) const noexcept
 #endif // _WIN32
     testBinary /= test;
 
+    auto cmd = testBinary.string();
+    cmd += " 2>> Errors.txt"sv;
+
     std::cout << '\n' << c_Delim << std::endl;
     std::cout << "Running Test: "sv << test << std::endl;
-    auto result = std::system(testBinary.string().c_str());
+    auto result = std::system(cmd.c_str());
     if (result != 0)
     {
-        std::cout << test << " UNAVAILABLE!" << std::endl;
+        std::cout << result << ": "sv << test << " UNAVAILABLE!"sv << std::endl;
     }
     std::cout << "Test Complete!"sv << std::endl;
     std::cout << c_Delim << '\n' << std::endl;
@@ -84,10 +87,15 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    constexpr auto tests = std::array<const std::string_view, 3>{
+    constexpr auto tests = std::array<const std::string_view, 6>{
+        "ASan"sv,
         "Format"sv,
         "HelloWorld"sv,
-        "Modules"sv };
+        "LSan"sv,
+        "Modules"sv,
+        "UBSan"sv };
+
+    std::system("echo Start > Errors.txt");
 
     auto tester = Tester{ *argv,  tests };
     tester.run();

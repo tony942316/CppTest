@@ -9,25 +9,24 @@ message("Compiler is: ${CMAKE_CXX_COMPILER_ID}")
 
 include(EQX-CMakeInterfaces/Interfaces.cmake)
 
+add_subdirectory(ASan)
 add_subdirectory(Format)
 add_subdirectory(HelloWorld)
-if (CMAKE_CXX_SCAN_FOR_MODULES)
-    add_subdirectory(Modules)
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+else ()
+    add_subdirectory(LSan)
+endif()
+add_subdirectory(Modules)
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+else ()
+    add_subdirectory(UBSan)
 endif()
 
 add_executable(Driver)
 target_sources(Driver PRIVATE Driver.cpp)
 target_compile_features(Driver PRIVATE cxx_std_20)
 
-target_link_libraries(Driver PRIVATE EQX-Warnings)
-if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_link_libraries(Driver PRIVATE
-        "$<$<CONFIG:Debug>:EQX-DebugSymbols;EQX-Sanitizers>"
-        "$<$<CONFIG:Release>:EQX-Optimizations>")
-else ()
-    target_link_libraries(Driver PRIVATE
-        EQX-DebugSymbols EQX-Sanitizers)
-endif()
+target_link_libraries(Driver PRIVATE EQX-Typical)
 
 set_target_properties(Driver PROPERTIES
     CXX_STANDARD_REQUIRED On

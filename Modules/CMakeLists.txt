@@ -51,9 +51,12 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_link_libraries(GMF INTERFACE
         "$<$<CONFIG:Debug>:EQX-DebugSymbols;EQX-Sanitizers>"
         "$<$<CONFIG:Release>:EQX-Optimizations>")
-else ()
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_link_libraries(GMF INTERFACE
         EQX-DebugSymbols EQX-Sanitizers)
+else ()
+    target_link_libraries(GMF INTERFACE
+        EQX-DebugSymbols EQX-ASan EQX-LSan)
 endif()
 
 set_target_properties(Modules PROPERTIES

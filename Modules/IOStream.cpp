@@ -10,4 +10,5 @@ export namespace std
 {
     using std::cout;
     using std::endl;
+    using std::flush;
 }
