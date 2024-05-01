@@ -31,7 +31,7 @@ public:
 private:
 };
 
-#if defined(__clang__) || defined(_Win32)
+#if defined(__clang__) || defined(_MSC_VER)
 module : private;
 
 void PMF::print() noexcept
