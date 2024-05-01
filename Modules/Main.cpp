@@ -5,7 +5,7 @@ int main()
 {
     Regular::print();
     Implementation::print();
-#if defined(__clang__) || defined(_Win32)
+#if defined(__clang__) || defined(_MSC_VER)
     PMF::print();
 #endif
     Partition::Interface::print();
