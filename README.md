@@ -20,6 +20,13 @@ is operating correctly, the build system is assumed to support c++20.
 
 ## Building <a name="building"></a>
 
+First be sure to clone the repo from github, CppTest has a submodule so use
+the `--recurse-submodules` flag:
+
+```bash
+git clone https://github.com/tony942316/CppTest.git --recurse-submodules
+```
+
 To build CppTest you will need the following programs:
 
 - CMake version 3.28+ (Module dependency scanning is required)
