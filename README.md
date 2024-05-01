@@ -11,9 +11,12 @@
 Collection of small programs that are built and run to ensure the build system
 is operating correctly, the build system is assumed to support c++20.
 
+- ASan       -> Test Address Sanitizer
 - HelloWorld -> Build and run a simple hello world program
+- LSan       -> Test Leak Sanitizer (Not MSVC)
 - Format     -> Test if std::format is available
 - Modules    -> Test to see if c++20 modules are operating correctly
+- UBSan      -> Test Undefined Behavior Sanitizer (Not MSVC)
 
 ## Building <a name="building"></a>
 
