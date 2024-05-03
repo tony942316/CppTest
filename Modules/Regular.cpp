@@ -31,11 +31,9 @@ public:
 private:
 };
 
-#if defined(__clang__) || defined(_MSC_VER)
 module : private;
 
 void PMF::print() noexcept
 {
     std::cout << "Hello Private Module Fragments!" << std::endl;
 }
-#endif
